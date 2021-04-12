@@ -6,14 +6,14 @@ public class Main{
 
     public static void main(String[] args) {
         /* game method starts the game */
+        System.out.println("Welcome To Luck By Chance\n");
         game();     //Calling Method 1
     }
 
     //Method 1
     public static void game(){
 
-        System.out.println("Welcome To Luck By Chance\n");
-        System.out.println("Choose Which Game You Wanna Play\n");
+        System.out.println("\nChoose Which Game You Wanna Play\n");
         System.out.println("1. Lottery Game");
         System.out.println("2. Find When Will You Get Married");
 
@@ -34,6 +34,14 @@ public class Main{
         }
         else if(gameDecider == 2){
             findWhenWillYouGetMarried();    //Calling Method 5
+        }
+        else{
+            //This wil come on the screen if the value of the variable gameDecider is none of 1 or 2
+            System.out.println("Wrong Input");
+            System.out.println("Please Try Again");
+            System.out.println("Select 1 or 2");
+
+            gameDecider();  //Recursion of the Method gameDecider
         }
     }
 
@@ -57,7 +65,9 @@ public class Main{
         //Output for Game 1
         System.out.print(" got ");
         System.out.println(prize);
-        System.out.println("\nCongratulations!!!");
+        System.out.println("\nCongratulations!!!\n");
+
+        playingAgain();       //Calling Method 10
 
     }
 
@@ -121,8 +131,9 @@ public class Main{
         System.out.print(" ");
         System.out.print(month);
         System.out.println(" 2021");
-        System.out.println("\nCongratulations!!!");
+        System.out.println("\nCongratulations!!!\n");
 
+        playingAgain();       //Calling Method 10
 
     }
 
@@ -188,10 +199,37 @@ public class Main{
         return count;       //Returning to Method 8
     }
 
+    //Method 10
+    /* This Method playingAgain checks if the player wants to play again */
+    public static void playingAgain(){
+
+        System.out.println("Do You Wanna Play Again?");
+        System.out.println("If No, Enter 0");
+        System.out.println("If Yes, Enter 1");
+
+        Scanner takingInput = new Scanner(System.in);
+
+        int checkIfPlayingAgain = takingInput.nextInt();
+
+        if(checkIfPlayingAgain == 0){
+            System.out.println("\nThank You\n");
+            System.exit(0);    //Exiting The Game
+        }
+        else if(checkIfPlayingAgain == 1){
+            game();    //Calling Method 1
+        }
+        else{
+            System.out.println("Wrong Input");
+            System.out.println("Please Try Again");
+
+            playingAgain();    //Recursion of the Method playingAgain
+        }
+
+    }
+
 
 
 
 
 
 } /// End of class Main
-
